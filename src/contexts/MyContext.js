@@ -4,7 +4,7 @@ export const MyContext = createContext();
 
 // Define the base URL
 const Axios = axios.create({
-    baseURL: 'http://localhost:800/php/api/',
+    baseURL: 'http://localhost:800/react-php-crud/api/',
 });
 
 class MyContextProvider extends Component{
