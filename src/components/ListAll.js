@@ -2,6 +2,7 @@ import React,{useContext,useState,useEffect} from 'react';
 import { MyContext } from '../contexts/MyContext';
 import { Link } from "react-router-dom";
 
+
 const ListAll = () => {
   const {userlistall,deleteUserall} = useContext(MyContext);
   useEffect( () => {
@@ -27,13 +28,17 @@ const ListAll = () => {
   const deleteUser = async (id) => {
     try {
       const deleteUserlist = await deleteUserall(id);
+      console.log(deleteUserlist)
       if(deleteUserlist.success === true){
         setuser([]);
         alluser();
+        console.log("jgndgn")
       }
     } catch (error) { throw error;}    
   }
 
+	
+  
 
 return ( <>
   {isuser.map((item,index)=>(
@@ -42,6 +47,8 @@ return ( <>
       <p>Email: {item.user_email}</p>
       <Link  to={`EditForm/${item.id}`} className="btn default-btn"> Edit </Link>
       <button className="btn red-btn" onClick={() => deleteConfirm(item.id)}> Delete </button>
+    
+
     </div>
   ))}
 </> );
